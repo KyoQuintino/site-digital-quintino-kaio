@@ -9,9 +9,12 @@ import {
   ExternalLink,
   Menu,
   MessageCircle,
+  Moon,
   Search,
+  Sun,
   X,
 } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
 
 type Product = {
   id: number;
@@ -288,6 +291,7 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
 }
 
 export default function Home() {
+  const { theme, toggleTheme } = useTheme();
   const [filter, setFilter] = useState("Todas as categorias");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Product | null>(null);
@@ -321,6 +325,15 @@ export default function Home() {
           <a href="#sobre" onClick={() => setMobileOpen(false)}>Sobre</a>
           <a className="nav-cta" href={whatsappFor()} target="_blank" rel="noreferrer">Falar com a gente <ArrowUpRight size={15} /></a>
         </nav>
+        <button
+          className="theme-toggle"
+          type="button"
+          onClick={toggleTheme}
+          aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"}
+          title={theme === "dark" ? "Tema claro" : "Tema escuro"}
+        >
+          {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+        </button>
         <button className="menu-toggle" aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"} onClick={() => setMobileOpen((open) => !open)}>
           {mobileOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
