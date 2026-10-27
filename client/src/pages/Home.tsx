@@ -412,20 +412,21 @@ export default function Home() {
 
         <section className="catalog section-wrap" id="colecao">
           <div className="catalog-intro">
-            <div><div className="eyebrow">A COLEÇÃO DIGITALQUINTINO</div><h2>Escolha a próxima <i>página.</i></h2></div>
-            <p>Vinte e sete leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a compra quando estiver pronto.</p>
+            <div><div className="eyebrow">A COLEÇÃO DIGITALQUINTINO</div><h2>Escolha a próxima <i>virada.</i></h2></div>
+            <p>Vinte e sete leituras para alinhar o que você sente com o que quer construir. Explore por tema, encontre a que conversa com seu momento e leia no seu ritmo.</p>
           </div>
           <div className="catalog-tools">
             <label className="select-wrap"><span>Filtrar por categoria</span><select value={filter} onChange={(event) => setFilter(event.target.value)}><option>Todas as categorias</option>{categories.map((category) => <option key={category}>{category}</option>)}</select><ChevronDown size={16} /></label>
             <label className="search-wrap"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar uma leitura" aria-label="Buscar uma leitura" /></label>
-            <div className="result-count"><strong>{filtered.length}</strong> e-books para escolher</div>
+            <div className="result-count"><strong>{filtered.length}</strong> leituras para explorar</div>
           </div>
-          <div className="quick-filters"><span>Quero cuidar de:</span>{categories.slice(0, 5).map((category) => <button className={filter === category ? "active" : ""} key={category} onClick={() => setFilter(category)}>{category}</button>)}</div>
+          <div className="catalog-hint"><BookOpen size={15} /><span>Comece pelo que você quer transformar hoje.</span><span className="hint-rule" /></div>
+          <div className="quick-filters"><span>Comece por:</span>{categories.slice(0, 5).map((category) => <button className={filter === category ? "active" : ""} key={category} onClick={() => setFilter(category)}>{category}</button>)}</div>
           <div className="product-grid">
             {filtered.map((product) => (
               <article className="product-card" key={product.id}>
                 <button className="product-cover-button" onClick={() => setSelected(product)} aria-label={`Visualização rápida de ${product.title}`}><Cover product={product} variant="card" /><span className="quick-view">Visualização rápida <ArrowUpRight size={14} /></span></button>
-                <div className="product-info"><span className="product-category">{product.category}</span><h3>{product.title}</h3><p>{product.description}</p><div className="product-footer"><button className="details-link" onClick={() => setSelected(product)}>Ver conteúdo completo <ArrowRight size={15} /></button><a href={product.href} target="_blank" rel="noreferrer" aria-label={`Comprar ${product.title}`}><ArrowUpRight size={17} /></a></div></div>
+                <div className="product-info"><span className="product-category">{product.category}</span><span className="product-tag">{product.tag}</span><h3>{product.title}</h3><p>{product.description}</p><div className="product-footer"><button className="details-link" onClick={() => setSelected(product)}>Conhecer esta leitura <ArrowRight size={15} /></button><a href={product.href} target="_blank" rel="noreferrer" aria-label={`Comprar ${product.title}`}><ArrowUpRight size={17} /></a></div></div>
               </article>
             ))}
           </div>
