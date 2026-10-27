@@ -276,6 +276,39 @@ const products: Product[] = [
     tag: "PEQUENOS PASSOS",
     bullets: ["Princípios para consistência", "Aplicações para a vida real", "Acesso imediato"],
   },
+  {
+    id: 25,
+    title: "Limite Zero",
+    category: "AUTOCONHECIMENTO · PAZ E BEM-ESTAR",
+    description: "Uma leitura sobre Ho'oponopono, consciência e os padrões mentais que podem limitar a vida.",
+    image: "limite-zero-capa.jpg",
+    href: whatsappFor("Tenho interesse no e-book Limite Zero"),
+    tag: "NOVA SELEÇÃO",
+    author: "Joe Vitale e Ihaleakala Hew Len",
+    bullets: ["Reflexões sobre consciência e transformação pessoal", "Introdução ao método havaiano Ho'oponopono", "Atendimento para informações e disponibilidade"],
+  },
+  {
+    id: 26,
+    title: "Viver em Paz para Morrer em Paz",
+    category: "VIDA · REFLEXÃO",
+    description: "Uma reflexão de Mario Sergio Cortella sobre o que torna a vida importante e significativa.",
+    image: "viver-em-paz-para-morrer-em-paz-capa.jpg",
+    href: whatsappFor("Tenho interesse no e-book Viver em Paz para Morrer em Paz"),
+    tag: "NOVA SELEÇÃO",
+    author: "Mario Sergio Cortella",
+    bullets: ["Reflexões sobre presença, propósito e legado", "Leitura para repensar o que importa", "Atendimento para informações e disponibilidade"],
+  },
+  {
+    id: 27,
+    title: "Liderança com Propósito",
+    category: "LIDERANÇA · PROPÓSITO",
+    description: "Princípios práticos para liderar com clareza, responsabilidade e sentido.",
+    image: "lideranca-com-proposito-capa.jpg",
+    href: whatsappFor("Tenho interesse no e-book Liderança com Propósito"),
+    tag: "NOVA SELEÇÃO",
+    author: "Rick Warren",
+    bullets: ["Princípios para liderar com propósito", "Reflexões para decisões e responsabilidades", "Atendimento para informações e disponibilidade"],
+  },
 ];
 
 const categories = Array.from(new Set(products.map((product) => product.category)));
@@ -380,7 +413,7 @@ export default function Home() {
         <section className="catalog section-wrap" id="colecao">
           <div className="catalog-intro">
             <div><div className="eyebrow">A COLEÇÃO DIGITALQUINTINO</div><h2>Escolha a próxima <i>página.</i></h2></div>
-            <p>Vinte e quatro leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a Hotmart quando estiver pronto.</p>
+            <p>Vinte e sete leituras para momentos diferentes. Você escolhe o tema, conhece a proposta e segue para a compra quando estiver pronto.</p>
           </div>
           <div className="catalog-tools">
             <label className="select-wrap"><span>Filtrar por categoria</span><select value={filter} onChange={(event) => setFilter(event.target.value)}><option>Todas as categorias</option>{categories.map((category) => <option key={category}>{category}</option>)}</select><ChevronDown size={16} /></label>
